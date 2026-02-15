@@ -11,77 +11,47 @@
     <meta property="og:description" content="Tsuboiのポートフォリオです">
 </head>
 <body>
-    <div class="loading">
-      <div class="loading-animations">
-        <div class="animation-item"></div>
-        <div class="animation-item"></div>
-        <div class="animation-item"></div>
-      </div>
-    </div>
-    <header class="mdc-top-app-bar">
-        <div class="mdc-top-app-bar__row">
-          <section class="mdc-top-app-bar__section">
-            <span class="mdc-top-app-bar__title">Tsuboi</span>
-          </section>
-          <nav class="mdc-top-app-bar__section mdc-top-app-bar__selector" role="navigation">
-            <ul class="mdc-top-app-bar__nav-list">
-              <li class="top-app-bar-text-common top-app-bar-carrier"><a href="#carrier" class="link">Carrier</a></li>
-              <li class="top-app-bar-text-common top-app-bar-skill"><a href="#skill" class="link">Skill</a></li>
-              <li class="top-app-bar-text-common top-app-bar-about"><a href="#about" class="link">About</a></li>
+    <header class="header">
+        <div class="header__row">
+          <span class="header__title">Tsuboi</span>
+          <nav class="header__nav" role="navigation">
+            <ul class="header__links">
+              <li><a href="#carrier" class="header__link">Carrier</a></li>
+              <li><a href="#skill" class="header__link">Skill</a></li>
+              <li><a href="#about" class="header__link">About</a></li>
             </ul>
           </nav>
         </div>
-      </header>
+    </header>
       <main>
-        <div class="card__wrapper">
-          <a href="#carrier">
-            <div class="mdc-card demo-card">
-              <div class="mdc-card__primary" tabindex="0">
-                <div class="mdc-card__media demo-card__media" style="background-image: url(images/case.png);">
-                  <div class="mdc-card__media-content">
-                    <div class="demo-card__primary">
-                      <h2 class="demo-card__title">Carrier</h2>
-                    </div>
-                  </div>
-                </div>
-                <div class="demo-card__secondary">My carrier</div>
-              </div>
-            </div>
+        <div class="cards">
+          <a href="#carrier" class="card">
+            <span class="card__media-wrap">
+              <span class="card__media" style="background-image: url(images/case.png);" aria-hidden="true"></span>
+              <h2 class="card__title">Carrier</h2>
+            </span>
+            <span class="card__footer">My carrier</span>
           </a>
-          <a href="#skill">
-            <div class="mdc-card demo-card">
-              <div class="mdc-card__primary" tabindex="0">
-                <div class="mdc-card__media demo-card__media" style="background-image: url(images/open-book.png);">
-                  <div class="mdc-card__media-content">
-                    <div class="demo-card__primary">
-                      <h2 class="demo-card__title">Skill</h2>
-                    </div>
-                  </div>
-                </div>
-                <div class="demo-card__secondary">My skill</div>
-              </div>
-            </div>
+          <a href="#skill" class="card">
+            <span class="card__media-wrap">
+              <span class="card__media" style="background-image: url(images/open-book.png);" aria-hidden="true"></span>
+              <h2 class="card__title">Skill</h2>
+            </span>
+            <span class="card__footer">My skill</span>
           </a>
-          <a href="#about">
-            <div class="mdc-card demo-card">
-              <div class="mdc-card__primary" tabindex="0">
-                <div class="mdc-card__media demo-card__media" style="background-image: url(images/owner.png);">
-                  <div class="mdc-card__media-content">
-                    <div class="demo-card__primary">
-                      <h2 class="demo-card__title">About</h2>
-                    </div>
-                  </div>
-                </div>
-                <div class="demo-card__secondary">About me</div>
-              </div>
-            </div>
+          <a href="#about" class="card">
+            <span class="card__media-wrap">
+              <span class="card__media" style="background-image: url(images/owner.png);" aria-hidden="true"></span>
+              <h2 class="card__title">About</h2>
+            </span>
+            <span class="card__footer">About me</span>
           </a>
         </div>
-        <div id="carrier" class="carrier__wrapper">
-          <div class="carrier__header">
-            <img src="images/case.png" alt="" class="title__icon">
-            <div class="title__main">Carrier</div>
-          </div>
+        <section id="carrier" class="section carrier">
+          <header class="section__header">
+            <img src="images/case.png" alt="" class="section__icon" width="20" height="20">
+            <h2 class="section__title">Carrier</h2>
+          </header>
           <div class="carrier__contents">
             <p class="carrier__company">上場企業（2023年4月〜現在・正社員・エンジニア）</p>
             <p class="carrier__company-desc">保険・銀行・クレジット・証券などの大規模システム開発・保守・運用のノウハウを蓄積したコンサル業</p>
@@ -228,25 +198,19 @@
               </div>
             </details>
           </div>
-        </div>
+        </section>
 
-        <div id="skill" class="skill__wrapper">
-          <div class="skill__header">
-            <img src="images/open-book.png" alt="" class="title__icon">
-            <div class="title__main">Skill</div>
-          </div>
-          <div class="skill__contents">
-            <div class="skill__contents__container">
-              <div class="skill__contents__description">
-                業務で使用した技術と独学で学んだ技術を記載してます。<br>
-                業務ではAccess VBAを中心に扱っておりました。<br>
-                独学でJavaの勉強を行っております。<br>
-              </div>
-              <div class="skill__language__wrapper">
-                <div class="skill__contents__title__wrapper">
-                  <img src="images/book.png" alt="" class="skill__contents__title__icon">
-                  <div class="skill__contents__title__description">Language</div>
-                </div>
+        <section id="skill" class="section skill">
+          <header class="section__header">
+            <img src="images/open-book.png" alt="" class="section__icon" width="20" height="20">
+            <h2 class="section__title">Skill</h2>
+          </header>
+          <div class="skill__body">
+              <p class="skill__intro">
+                業務で使用した技術と独学で学んだ技術を記載してます。業務ではAccess VBAを中心に扱っておりました。独学でJavaの勉強を行っております。
+              </p>
+              <div class="skill__block">
+                <h3 class="skill__block-title"><img src="images/book.png" alt="" width="16" height="16"> Language</h3>
                 <li class="skill__contents__item">
                   <div class="skill__name">Access VBA</div>
                   <div class="skill__period">4ヶ月</div>
@@ -283,13 +247,9 @@
                   <img src="images/star_white.svg" class="skill__star" alt="">
                   <img src="images/star_white.svg" class="skill__star" alt="">
                 </li>
-                
-            </div>
-            <div class="skill__db__wrapper">
-              <div class="skill__contents__title__wrapper">
-                <img src="images/book.png" alt="" class="skill__contents__title__icon">
-                <div class="skill__contents__title__description">Database</div>
               </div>
+              <div class="skill__block">
+                <h3 class="skill__block-title"><img src="images/book.png" alt="" width="16" height="16"> Database</h3>
               <li class="skill__contents__item">
                 <div class="skill__name">Microsoft Access Database</div>
                 <div class="skill__period">4ヶ月</div>
@@ -326,12 +286,9 @@
                 <img src="images/star_white.svg" class="skill__star" alt="">
                 <img src="images/star_white.svg" class="skill__star" alt="">
               </li>
-            </div>
-            <div class="skill__tool__wrapper">
-              <div class="skill__contents__title__wrapper">
-                <img src="images/book.png" alt="" class="skill__contents__title__icon">
-                <div class="skill__contents__title__description">Tool</div>
               </div>
+              <div class="skill__block">
+                <h3 class="skill__block-title"><img src="images/book.png" alt="" width="16" height="16"> Tool</h3>
               <li class="skill__contents__item">
                 <div class="skill__name">Backlog</div>
                 <div class="skill__period">5ヶ月</div>
@@ -341,12 +298,9 @@
                 <img src="images/star_white.svg" class="skill__star" alt="">
                 <img src="images/star_white.svg" class="skill__star" alt="">
               </li>
-            </div>
-            <div class="skill__others__wrapper">
-              <div class="skill__contents__title__wrapper">
-                <img src="images/book.png" alt="" class="skill__contents__title__icon">
-                <div class="skill__contents__title__description">Others</div>
               </div>
+              <div class="skill__block">
+                <h3 class="skill__block-title"><img src="images/book.png" alt="" width="16" height="16"> Others</h3>
               <li class="skill__contents__item">
                 <div class="skill__name">.NetFreamwork</div>
                 <div class="skill__period">4ヶ月</div>
@@ -365,57 +319,35 @@
                 <img src="images/star_white.svg" class="skill__star" alt="">
                 <img src="images/star_white.svg" class="skill__star" alt="">
               </li>
-            </div>
+              </div>
           </div>
-        </div>
-        <div id="about" class="about__wrapper">
-          <div class="about__header">
-            <img src="images/owner.png" alt="" class="title__icon">
-            <div class="title__main">About</div>
-          </div>
-          <div class="about__contents">
-            <div class="about__contents__container">
-              <div class="about__contents__item">
-                <div class="about__item__title about__handle">Handle</div>
-                <div class="about__item__description about__handle">tsuboi</div>
-              </div>
-              <div class="about__contents__item">
-                <div class="about__item__title about__birth">Birth</div>
-                <div class="about__item__description about__birth">2000年</div>
-              </div>
-              <div class="about__contents__item">
-                <div class="about__item__title about__location">Location</div>
-                <div class="about__item__description about__location">東京都</div>
-              </div>
-              <div class="about__contents__item">
-                <div class="about__item__title about__education">Education</div>
-                <div class="about__item__description about__education">地方私立立大学卒</div>
-              </div>
-              <div class="about__contents__item">
-                <div class="about__item__title about__hobby">Hobby</div>
-                <div class="about__item__description about__hobby">筋トレ</div>
-              </div>
-              <div class="about__contents__item">
-                <div class="about__item__title about__interests">Interests</div>
-                <div class="about__item__description about__interests">散歩 睡眠 映画</div>
-              </div>
-            </div>
+        </section>
+        <section id="about" class="section about">
+          <header class="section__header">
+            <img src="images/owner.png" alt="" class="section__icon" width="20" height="20">
+            <h2 class="section__title">About</h2>
+          </header>
+          <dl class="about__list">
+            <div class="about__item"><dt>Handle</dt><dd>tsuboi</dd></div>
+            <div class="about__item"><dt>Birth</dt><dd>2000年</dd></div>
+            <div class="about__item"><dt>Location</dt><dd>東京都</dd></div>
+            <div class="about__item"><dt>Education</dt><dd>地方私立立大学卒</dd></div>
+            <div class="about__item"><dt>Hobby</dt><dd>筋トレ</dd></div>
+            <div class="about__item"><dt>Interests</dt><dd>散歩 睡眠 映画</dd></div>
+          </dl>
+        </section>
       </main>
       
-      <footer class="footer__wrapper">
-        <div class="footer__container">
-          <div class="footer__name">
-            Tsuboi
-          </div>
-          <div class="footer__description">
-            Engineer, SE
-          </div>
-          <div class="footer__link__container">
-            <li class="footer__link__item"><a href="#carrier" class="footer__link">Carrier</a></li>
-            <li class="footer__link__item"><a href="#skill" class="footer__link">Skill</a></li>
-            <li class="footer__link__item"><a href="#about" class="footer__link">About</a></li>
-          </div>
-          <div class="footer__copyright">&copy; 2026 Tsuboi</div>
+      <footer class="footer">
+        <div class="footer__inner">
+          <p class="footer__name">Tsuboi</p>
+          <p class="footer__role">Engineer, SE</p>
+          <ul class="footer__links">
+            <li><a href="#carrier" class="footer__link">Carrier</a></li>
+            <li><a href="#skill" class="footer__link">Skill</a></li>
+            <li><a href="#about" class="footer__link">About</a></li>
+          </ul>
+          <p class="footer__copy">&copy; 2026 Tsuboi</p>
         </div>
       </footer>
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

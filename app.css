@@ -17,9 +17,6 @@ body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   padding-bottom: env(safe-area-inset-bottom);
-}
-
-body {
   font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: linear-gradient(160deg, #f5f5f7 0%, #e8e8ec 50%, #f0f0f4 100%);
@@ -49,13 +46,12 @@ main {
   padding: 80px 20px 64px;
 }
 
-#carrier, #work, #skill, #about, #contact {
-  scroll-margin-top: 58px;
+#carrier, #skill, #about {
+  scroll-margin-top: 56px;
 }
 
-
-/* ===== Top App Bar ===== */
-.mdc-top-app-bar {
+/* ===== Header ===== */
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -68,7 +64,7 @@ main {
   z-index: 100;
 }
 
-.mdc-top-app-bar__row {
+.header__row {
   max-width: 1080px;
   height: 100%;
   margin: 0 auto;
@@ -78,22 +74,13 @@ main {
   padding: 0 20px;
 }
 
-.mdc-top-app-bar__section {
-  display: flex;
-  align-items: center;
-}
-
-.mdc-top-app-bar__title {
+.header__title {
   font-size: 14px;
   letter-spacing: 0.1em;
+  color: #333;
 }
 
-.mdc-top-app-bar__selector {
-  gap: 24px;
-  font-size: 12px;
-}
-
-.mdc-top-app-bar__nav-list {
+.header__links {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -102,20 +89,16 @@ main {
   list-style: none;
 }
 
-.top-app-bar-text-common {
-  position: relative;
-  cursor: pointer;
-}
-
-.top-app-bar-text-common .link {
+.header__link {
   display: inline-block;
   padding: 8px 0;
   min-height: 44px;
   line-height: 28px;
-  box-sizing: border-box;
+  font-size: 12px;
+  position: relative;
 }
 
-.top-app-bar-text-common .link::after {
+.header__link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -126,17 +109,12 @@ main {
   transition: width 0.2s ease;
 }
 
-.top-app-bar-text-common .link:hover::after {
+.header__link:hover::after {
   width: 100%;
 }
 
-/* ===== Loading (簡易で非表示) ===== */
-.loading {
-  display: none;
-}
-
-/* ===== Card Section (Carrier / Work / Skill / About / Contact の上部カード) ===== */
-.card__wrapper {
+/* ===== Cards ===== */
+.cards {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -144,97 +122,80 @@ main {
   margin-bottom: 56px;
 }
 
-.demo-card {
+.card {
+  display: block;
   width: 180px;
   min-width: 160px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
-  background-color: #ffffff;
+  background: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.demo-card:hover {
+.card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.mdc-card__primary {
-  cursor: pointer;
+.card__media-wrap {
+  position: relative;
+  display: block;
 }
 
-.demo-card__media {
-  position: relative;
+.card__media {
+  display: block;
   height: 88px;
   background-position: center;
   background-size: cover;
 }
 
-.demo-card__primary {
+.card__title {
   position: absolute;
   left: 12px;
   bottom: 10px;
-  color: #ffffff;
+  margin: 0;
+  font-size: 14px;
+  font-weight: inherit;
+  color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-.demo-card__title {
-  font-size: 14px;
-}
-
-.demo-card__secondary {
+.card__footer {
+  display: block;
   padding: 12px 14px 14px;
   font-size: 11px;
   color: #5c5c5c;
 }
 
-/* ===== Section Common ===== */
-main section,
-.carrier__wrapper,
-.work__wrapper,
-.skill__wrapper,
-.about__wrapper,
-.contact__wrapper {
+/* ===== Section common ===== */
+.section {
   margin-bottom: 72px;
-}
-
-.carrier__wrapper,
-.skill__wrapper,
-.about__wrapper {
   padding: 24px 20px 28px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
-.mdc-top-app-bar__title {
-   color: #333;
-  }
-
-.title__icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-
-.title__main {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.carrier__header,
-.work__header,
-.skill__header,
-.about__header,
-.contact__header {
+.section__header {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-bottom: 16px;
 }
 
+.section__icon {
+  flex-shrink: 0;
+}
+
+.section__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
 /* ===== Carrier ===== */
-.carrier__contents {
+.carrier .carrier__contents {
   font-size: 12px;
 }
 
@@ -323,89 +284,30 @@ main section,
   margin-top: 12px !important;
 }
 
-/* ===== Work ===== */
-.work__contents__description {
-  font-size: 12px;
-  margin-bottom: 16px;
-}
-
-.work__contents__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.work__container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 16px 20px 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
-}
-
-.work__thumbnail {
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.work__contents__title {
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.work__contents__description {
-  font-size: 12px;
-  margin-bottom: 8px;
-}
-
-.work__contents__icon {
-  margin-top: 8px;
-}
-
-.google__legal__attribution {
-  margin-top: 6px;
-  font-size: 10px;
-  color: #777;
-}
-
-.work__github {
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.work__link {
-  color: #007aff;
-}
-
 /* ===== Skill ===== */
-.skill__contents {
+.skill__body {
   font-size: 12px;
 }
 
-.skill__contents__description {
+.skill__intro {
+  margin: 0 0 16px;
+}
+
+.skill__block {
   margin-bottom: 16px;
 }
 
-.skill__language__wrapper,
-.skill__db__wrapper,
-.skill__tool__wrapper,
-.skill__others__wrapper {
-  margin-bottom: 16px;
-}
-
-.skill__contents__title__wrapper {
+.skill__block-title {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 8px;
-}
-
-.skill__contents__title__icon {
-  width: 16px;
-  height: 16px;
-}
-
-.skill__contents__title__description {
+  margin: 0 0 8px;
+  font-size: 12px;
   font-weight: 600;
+}
+
+.skill__block-title img {
+  flex-shrink: 0;
 }
 
 .skill__contents__item {
@@ -436,67 +338,30 @@ main section,
   height: 14px;
 }
 
-.skill__github {
-  margin-top: 8px;
-}
-
 /* ===== About ===== */
-.about__contents {
-  display: grid;
-  grid-template-columns: 1.6fr 0.8fr;
-  gap: 24px;
-  align-items: flex-start;
+.about__list {
+  margin: 0;
+  padding: 0;
   font-size: 12px;
 }
 
-.about__contents__container {
-  display: grid;
-  row-gap: 4px;
-}
-
-.about__contents__item {
+.about__item {
   display: grid;
   grid-template-columns: 84px 1fr;
   column-gap: 12px;
-  padding: 3px 0;
+  padding: 4px 0;
 }
 
-.about__item__title {
+.about__item dt {
+  margin: 0;
   font-weight: 500;
 }
 
-.about__contents__icon img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto;
+.about__item dd {
+  margin: 0;
 }
 
-.about__greeting {
-  grid-column: 1 / -1;
-  margin-top: 8px;
-}
-
-/* ===== Contact ===== */
-.contact__description {
-  font-size: 12px;
-  margin-bottom: 12px;
-}
-
-.contact__contents {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.contact__link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ===== Page Top Button ===== */
+/* ===== Page Top ===== */
 #page_top {
   position: fixed;
   right: 20px;
@@ -508,48 +373,47 @@ main section,
   display: block;
 }
 
-.page-top__footer {
-  display: none;
-}
-
 /* ===== Footer ===== */
-.footer__wrapper {
+.footer {
   background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
   color: #f5f5f5;
   padding: 28px 20px 24px;
 }
 
-.footer__container {
+.footer__inner {
   max-width: 1080px;
   margin: 0 auto;
   font-size: 11px;
 }
 
 .footer__name {
+  margin: 0 0 2px;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 2px;
 }
 
-.footer__description {
-  margin-bottom: 12px;
+.footer__role {
+  margin: 0 0 12px;
 }
 
-.footer__link__container {
+.footer__links {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
 }
 
 .footer__link {
-  color: #ffffff;
+  color: #fff;
   font-size: 11px;
 }
 
-.footer__copyright {
+.footer__copy {
+  margin: 0;
   font-size: 10px;
-  color: #bbbbbb;
+  color: #bbb;
 }
 
 /* ===== Responsive ===== */
@@ -558,24 +422,16 @@ main section,
     padding: 72px 16px 56px;
   }
 
-  #carrier, #work, #skill, #about, #contact {
-    scroll-margin-top: 56px;
-  }
-
-  .mdc-top-app-bar__row {
+  .header__row {
     padding: 0 16px;
   }
 
-  .mdc-top-app-bar__selector {
-    gap: 16px;
-  }
-
-  .mdc-top-app-bar__nav-list {
+  .header__links {
     gap: 16px;
     font-size: 11px;
   }
 
-  .card__wrapper {
+  .cards {
     flex-wrap: nowrap;
     overflow-x: auto;
     justify-content: flex-start;
@@ -586,22 +442,20 @@ main section,
     scrollbar-width: none;
   }
 
-  .card__wrapper::-webkit-scrollbar {
+  .cards::-webkit-scrollbar {
     display: none;
   }
 
-  .demo-card {
+  .card {
     flex: 0 0 140px;
     min-width: 140px;
   }
 
-  .demo-card__media {
+  .card__media {
     height: 72px;
   }
 
-  .carrier__header,
-  .skill__header,
-  .about__header {
+  .section__header {
     margin-bottom: 12px;
   }
 
@@ -634,21 +488,17 @@ main section,
     height: 12px;
   }
 
-  .about__contents {
-    grid-template-columns: 1fr;
-  }
-
-  .about__contents__item {
+  .about__item {
     grid-template-columns: 80px 1fr;
     column-gap: 10px;
     padding: 6px 0;
   }
 
-  .footer__wrapper {
+  .footer {
     padding: 24px 16px 20px;
   }
 
-  .footer__link__container {
+  .footer__links {
     gap: 12px;
   }
 
@@ -657,9 +507,7 @@ main section,
     bottom: 20px;
   }
 
-  .carrier__wrapper,
-  .skill__wrapper,
-  .about__wrapper {
+  .section {
     padding: 20px 16px 24px;
     border-radius: 12px;
   }
@@ -670,25 +518,25 @@ main section,
     padding: 64px 12px 48px;
   }
 
-  .mdc-top-app-bar__nav-list {
+  .header__links {
     gap: 12px;
     font-size: 10px;
   }
 
-  .title__main {
+  .section__title {
     font-size: 16px;
   }
 
-  .card__wrapper {
+  .cards {
     margin-bottom: 32px;
   }
 
-  .demo-card {
+  .card {
     flex: 0 0 120px;
     min-width: 120px;
   }
 
-  .demo-card__title {
+  .card__title {
     font-size: 13px;
   }
 
@@ -710,9 +558,7 @@ main section,
     height: 11px;
   }
 
-  .carrier__wrapper,
-  .skill__wrapper,
-  .about__wrapper {
+  .section {
     padding: 16px 12px 20px;
   }
 }
