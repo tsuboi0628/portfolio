@@ -1,0 +1,539 @@
+/* ===== Reset & Global ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 96px 16px 80px;
+}
+
+#carrier, #work, #skill, #about, #contact {
+  scroll-margin-top: 58px;
+}
+
+
+/* ===== Top App Bar ===== */
+.mdc-top-app-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.mdc-top-app-bar__row {
+  max-width: 1080px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.mdc-top-app-bar__section {
+  display: flex;
+  align-items: center;
+}
+
+.mdc-top-app-bar__title {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.mdc-top-app-bar__selector {
+  gap: 24px;
+  font-size: 12px;
+}
+
+.mdc-top-app-bar__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.top-app-bar-text-common {
+  position: relative;
+  cursor: pointer;
+}
+
+.top-app-bar-text-common .link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: #333;
+  transition: width 0.2s ease;
+}
+
+.top-app-bar-text-common .link:hover::after {
+  width: 100%;
+}
+
+/* ===== Loading (簡易で非表示) ===== */
+.loading {
+  display: none;
+}
+
+/* ===== Card Section (Carrier / Work / Skill / About / Contact の上部カード) ===== */
+.card__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 56px;
+}
+
+.demo-card {
+  width: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.demo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mdc-card__primary {
+  cursor: pointer;
+}
+
+.demo-card__media {
+  position: relative;
+  height: 80px;
+  background-position: center;
+  background-size: cover;
+}
+
+.demo-card__primary {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.demo-card__title {
+  font-size: 14px;
+}
+
+.demo-card__secondary {
+  padding: 10px 12px 12px;
+  font-size: 11px;
+  color: #666;
+}
+
+/* ===== Section Common ===== */
+main section,
+.carrier__wrapper,
+.work__wrapper,
+.skill__wrapper,
+.about__wrapper,
+.contact__wrapper {
+  margin-bottom: 72px;
+}
+
+.mdc-top-app-bar__title {
+   color: #333;
+  }
+
+.title__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.title__main {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.carrier__header,
+.work__header,
+.skill__header,
+.about__header,
+.contact__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+/* ===== Carrier ===== */
+.carrier__contents {
+  font-size: 12px;
+}
+
+.carrier__company {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.carrier__company-desc {
+  color: #555;
+  margin-bottom: 16px;
+  font-size: 11px;
+}
+
+.carrier__contents__item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.carrier__contents__item:last-child {
+  border-bottom: none;
+}
+
+.carrier__contents__item summary {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  column-gap: 16px;
+  align-items: baseline;
+  cursor: pointer;
+  list-style: none;
+}
+
+.carrier__contents__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.carrier__contents__item summary::marker {
+  content: none;
+}
+
+.carrier__contents__start {
+  color: #777;
+}
+
+.carrier__contents__summary {
+  font-weight: 500;
+}
+
+.carrier__contents__description {
+  margin-top: 12px;
+  padding-left: 0;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  color: #555;
+}
+
+.carrier__contents__description p {
+  margin: 0 0 8px 0;
+}
+
+.carrier__contents__description p:last-child {
+  margin-bottom: 0;
+}
+
+.carrier__detail-label {
+  font-weight: 600;
+  color: #444;
+  margin-top: 12px !important;
+  margin-bottom: 4px !important;
+}
+
+.carrier__detail-label:first-child {
+  margin-top: 0 !important;
+}
+
+.carrier__detail-meta {
+  font-size: 11px;
+  color: #888;
+  margin-top: 12px !important;
+}
+
+/* ===== Work ===== */
+.work__contents__description {
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.work__contents__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.work__container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px 20px 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.work__thumbnail {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.work__contents__title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.work__contents__description {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.work__contents__icon {
+  margin-top: 8px;
+}
+
+.google__legal__attribution {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #777;
+}
+
+.work__github {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.work__link {
+  color: #007aff;
+}
+
+/* ===== Skill ===== */
+.skill__contents {
+  font-size: 12px;
+}
+
+.skill__contents__description {
+  margin-bottom: 16px;
+}
+
+.skill__language__wrapper,
+.skill__db__wrapper,
+.skill__tool__wrapper,
+.skill__others__wrapper {
+  margin-bottom: 16px;
+}
+
+.skill__contents__title__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.skill__contents__title__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.skill__contents__title__description {
+  font-weight: 600;
+}
+
+.skill__contents__item {
+  display: grid;
+  grid-template-columns: 1fr 60px repeat(5, 16px);
+  align-items: center;
+  column-gap: 8px;
+  padding: 4px 0;
+}
+
+.skill__name {
+  font-weight: 500;
+}
+
+.skill__period {
+  font-size: 11px;
+  color: #777;
+}
+
+.skill__star {
+  width: 14px;
+  height: 14px;
+}
+
+.skill__github {
+  margin-top: 8px;
+}
+
+/* ===== About ===== */
+.about__contents {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr;
+  gap: 24px;
+  align-items: flex-start;
+  font-size: 12px;
+}
+
+.about__contents__container {
+  display: grid;
+  row-gap: 4px;
+}
+
+.about__contents__item {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  column-gap: 12px;
+  padding: 3px 0;
+}
+
+.about__item__title {
+  font-weight: 500;
+}
+
+.about__contents__icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.about__greeting {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+/* ===== Contact ===== */
+.contact__description {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.contact__contents {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Page Top Button ===== */
+#page_top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 90;
+}
+
+#page_top a {
+  display: block;
+}
+
+.page-top__footer {
+  display: none;
+}
+
+/* ===== Footer ===== */
+.footer__wrapper {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  padding: 24px 16px 18px;
+}
+
+.footer__container {
+  max-width: 1080px;
+  margin: 0 auto;
+  font-size: 11px;
+}
+
+.footer__name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.footer__description {
+  margin-bottom: 12px;
+}
+
+.footer__link__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.footer__link {
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.footer__copyright {
+  font-size: 10px;
+  color: #bbbbbb;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  main {
+    padding: 80px 12px 64px;
+  }
+
+  .card__wrapper {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .demo-card {
+    flex: 0 0 150px;
+  }
+
+  .about__contents {
+    grid-template-columns: 1fr;
+  }
+
+  .mdc-top-app-bar__selector {
+    font-size: 20px;
+  }
+}
+
