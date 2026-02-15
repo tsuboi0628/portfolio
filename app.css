@@ -74,6 +74,7 @@ main {
 }
 
 .mdc-top-app-bar__selector {
+  gap: 24px;
   font-size: 12px;
 }
 
@@ -81,9 +82,9 @@ main {
   display: flex;
   align-items: center;
   gap: 24px;
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .top-app-bar-text-common {
@@ -164,7 +165,7 @@ main {
 }
 
 /* ===== Section Common ===== */
-section,
+main section,
 .carrier__wrapper,
 .work__wrapper,
 .skill__wrapper,
@@ -172,6 +173,10 @@ section,
 .contact__wrapper {
   margin-bottom: 72px;
 }
+
+.mdc-top-app-bar__title {
+   color: #333;
+  }
 
 .title__icon {
   width: 20px;
@@ -271,7 +276,7 @@ section,
 }
 
 .work__link {
-  color: #337ac7;
+  color: #007aff;
 }
 
 /* ===== Skill ===== */
